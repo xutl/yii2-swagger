@@ -57,6 +57,8 @@ class SwaggerApiAction extends Action
      */
     public $cacheKey = 'api-swagger-cache';
 
+    public $cacheDuration = 3600;
+
     /**
      * @inheritdoc
      */
@@ -90,7 +92,7 @@ class SwaggerApiAction extends Action
         if ($this->cache !== null) {
             if (($swagger = $this->cache->get($this->cacheKey)) === false) {
                 $swagger = $this->getSwagger();
-                $this->cache->set($this->cacheKey, $swagger, 3600);
+                $this->cache->set($this->cacheKey, $swagger, $this->cacheDuration);
             }
         } else {
             $swagger = $this->getSwagger();
