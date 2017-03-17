@@ -1,0 +1,23 @@
+{
+  "name": "xutl/yii2-swagger",
+  "description": "swagger intergation with yii2",
+  "type": "library",
+  "keywords": ["yii2","extension","swagger","Restful","document"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "xutl",
+      "email": "xutl@gmail.com"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": "^2.0.0",
+    "zircote/swagger-php": "^2.0",
+    "bower-asset/swagger-ui": "2.2.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "xutl\\swagger\\": "src"
+    }
+  }
+}
