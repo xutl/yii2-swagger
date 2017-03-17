@@ -68,7 +68,7 @@ class SwaggerAction extends Action
      */
     public function run()
     {
-        return $this->controller->render($this->id, [
+        return $this->controller->render('@vendor/xutl/yii2-swagger/src/view.php', [
             'restUrl' => $this->restUrl,
             'oauth' => Json::encode($this->oauth),
         ]);
