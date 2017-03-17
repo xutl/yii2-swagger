@@ -61,16 +61,17 @@ class SwaggerAsset extends AssetBundle
         [
             'css/screen.css',
             'media' => 'screen',
+            'type'=>'text/css'
         ],
         //the setting will be overload, maybe the yii's issue.
         [
             'css/reset.css',
             'media' => 'print',
         ],
-        //[
-        //    'css/print.css',
-        //    'media' => 'print',
-        //],
+        [
+            'css/print.css',
+            'media' => 'print',
+        ],
     ];
 
     /**
@@ -79,7 +80,7 @@ class SwaggerAsset extends AssetBundle
     public function registerAssetFiles($view)
     {
         if ($this->autoGenerate) {
-            $language = $this->language;
+            $language = strtolower(Yii::$app->language);
             $fallbackLanguage = substr($this->language, 0, 2);
             if ($fallbackLanguage !== $this->language && !file_exists(Yii::getAlias($this->sourcePath . "/lang/{$language}.js"))) {
                 $language = $fallbackLanguage;

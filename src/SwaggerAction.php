@@ -8,6 +8,7 @@ namespace xutl\swagger;
 
 use Yii;
 use yii\base\Action;
+use yii\helpers\Json;
 
 /**
  * Class SwaggerAction
@@ -50,7 +51,6 @@ class SwaggerAction extends Action
     public function init()
     {
         parent::init();
-        $this->controller->layout = false;
         if (empty($this->oauth)) {
             $this->oauth = [
                 'clientId' => 'your-client-id',
@@ -70,7 +70,7 @@ class SwaggerAction extends Action
     {
         return $this->controller->render($this->id, [
             'restUrl' => $this->restUrl,
-            'oauthConfig' => $this->oauth,
+            'oauth' => Json::encode($this->oauth),
         ]);
     }
 }
